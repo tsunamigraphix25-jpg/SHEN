@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-shen-primary: #059669;
+  --color-shen-primary-dark: #047857;
+  --color-shen-primary-light: #10B981;
+  --color-shen-accent: #84CC16;
+  --color-shen-accent-dark: #65A30D;
+  --color-shen-accent-light: #A3E635;
+  --color-shen-50: #ECFDF5;
+  --color-shen-100: #D1FAE5;
+  --color-shen-200: #A7F3D0;
+  --color-shen-700: #047857;
+  --color-shen-800: #065F46;
+  --color-shen-900: #064E3B;
+  --color-shen-gray-50: #F9FAFB;
+  --color-shen-gray-100: #F3F4F6;
+  --color-shen-gray-200: #E5E7EB;
+  --color-shen-gray-300: #D1D5DB;
+  --color-shen-gray-500: #6B7280;
+  --color-shen-gray-600: #4B5563;
+  --color-shen-gray-700: #374151;
+  --color-shen-gray-800: #1F2937;
+  --color-shen-gray-900: #111827;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-shen-gray-900);
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-shen-gray-800);
+}
+
+.prose p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: var(--color-shen-gray-700);
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: var(--color-shen-gray-700);
+}
+
+.prose ul li {
+  list-style-type: disc;
+}
+
+.prose ol li {
+  list-style-type: decimal;
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--color-shen-gray-900);
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--color-shen-primary);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--color-shen-gray-600);
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
