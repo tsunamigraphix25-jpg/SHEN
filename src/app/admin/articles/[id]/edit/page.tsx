@@ -14,6 +14,7 @@ export default function EditArticlePage({ params }: Props) {
   const [form, setForm] = useState({
     title: "",
     excerpt: "",
+    coverImage: "",
     content: "",
     category: "article",
     status: "draft",
@@ -49,6 +50,7 @@ export default function EditArticlePage({ params }: Props) {
         setForm({
           title: data.title || "",
           excerpt: data.excerpt || "",
+          coverImage: data.coverImage || "",
           content: data.content || "",
           category: data.category || "article",
           status: data.status || "draft",
@@ -162,6 +164,12 @@ export default function EditArticlePage({ params }: Props) {
             <div>
               <label className="block text-sm font-semibold text-shen-gray-900 mb-1.5">Excerpt</label>
               <textarea rows={2} value={form.excerpt} onChange={e => update("excerpt", e.target.value)} className="w-full px-4 py-2.5 border border-shen-gray-200 rounded-lg outline-none resize-none" />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-shen-gray-900 mb-1.5">Header Image URL</label>
+              <input type="url" value={form.coverImage} onChange={e => update("coverImage", e.target.value)} className="w-full px-4 py-2.5 border border-shen-gray-200 rounded-lg outline-none" placeholder="https://example.com/image.jpg" />
+              <p className="text-xs text-shen-gray-400 mt-1">Paste a direct image URL to show it as the article header image.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

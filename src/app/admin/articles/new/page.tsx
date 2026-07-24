@@ -13,6 +13,7 @@ function ArticleFormInner() {
   const [form, setForm] = useState({
     title: "",
     excerpt: "",
+    coverImage: "",
     content: "",
     category: defaultCategory,
     status: "draft" as string,
@@ -120,6 +121,12 @@ function ArticleFormInner() {
             <div>
               <label className="block text-sm font-semibold text-shen-gray-900 mb-1.5">Excerpt / Summary</label>
               <textarea rows={2} value={form.excerpt} onChange={e => update("excerpt", e.target.value)} className="w-full px-4 py-2.5 border border-shen-gray-200 rounded-lg focus:ring-2 focus:ring-shen-primary focus:border-transparent outline-none resize-none" placeholder="Brief summary shown in listings" />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-shen-gray-900 mb-1.5">Header Image URL</label>
+              <input type="url" value={form.coverImage} onChange={e => update("coverImage", e.target.value)} className="w-full px-4 py-2.5 border border-shen-gray-200 rounded-lg focus:ring-2 focus:ring-shen-primary focus:border-transparent outline-none" placeholder="https://example.com/image.jpg" />
+              <p className="text-xs text-shen-gray-400 mt-1">Paste a direct image URL to show it as the article header image.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

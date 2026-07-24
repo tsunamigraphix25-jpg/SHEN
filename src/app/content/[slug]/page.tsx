@@ -79,6 +79,16 @@ export default async function ContentPage({ params }: Props) {
             </p>
           )}
 
+          {article.coverImage && (
+            <div className="mb-8 overflow-hidden rounded-2xl border border-shen-gray-200 bg-shen-gray-50">
+              <img
+                src={article.coverImage}
+                alt={article.title}
+                className="w-full h-64 md:h-80 object-cover"
+              />
+            </div>
+          )}
+
           <div className="flex flex-wrap items-center gap-4 text-sm text-shen-gray-500 pb-6 border-b border-shen-gray-200">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-shen-100 rounded-full flex items-center justify-center">
