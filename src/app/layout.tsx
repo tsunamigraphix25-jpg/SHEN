@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "SHEN Knowledge Hub | Safety, Health and Environment Network",
   description:
     "The official publication and knowledge-sharing platform of the Safety, Health and Environment Network (SHEN). Access articles, research, news, and resources.",
+  icons: [{ rel: "icon", url: "/favicon.png" }],
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
