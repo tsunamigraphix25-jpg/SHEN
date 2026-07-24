@@ -4,6 +4,8 @@ import { articles } from "@/db/schema";
 import { eq, sql } from "drizzle-orm";
 import { getSession } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ id: string }> }

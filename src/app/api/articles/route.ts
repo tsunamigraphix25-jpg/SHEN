@@ -5,6 +5,8 @@ import { eq, desc, and, sql } from "drizzle-orm";
 import { getSession } from "@/lib/auth";
 import slugify from "slugify";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   try {
     const url = new URL(req.url);
