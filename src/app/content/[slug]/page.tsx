@@ -4,7 +4,6 @@ import { articles } from "@/db/schema";
 import { eq, and, desc, ne } from "drizzle-orm";
 import { formatDate, categoryLabel, categoryColor, renderMarkdown } from "@/lib/utils";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { sql } from "drizzle-orm";
 
 export const dynamic = "force-dynamic";
@@ -22,7 +21,18 @@ export default async function ContentPage({ params }: Props) {
     .where(eq(articles.slug, slug))
     .limit(1);
 
-  if (!result.length) notFound();
+  if (!result.length) {
+    return (
+      <PublicLayout>
+        <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="rounded-2xl border border-shen-gray-200 bg-white p-8 text-center">
+            <h1 className="text-2xl font-bold text-shen-gray-900 mb-3">Content is temporarily unavailable</h1>
+            <p className="text-shen-gray-600">The article could not be loaded right now. Please try again shortly.</p>
+          </div>
+        </article>
+      </PublicLayout>
+    );
+  }
 
   const article = result[0];
 
