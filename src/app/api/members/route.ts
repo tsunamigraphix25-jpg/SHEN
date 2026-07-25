@@ -18,7 +18,7 @@ export async function GET() {
     }).from(users);
 
     // Get article counts per user
-    const articleCounts = await db
+    const articleCounts: Array<{ authorId: number | null; count: number | string | bigint | null }> = await db
       .select({
         authorId: articles.authorId,
         count: count(),
@@ -27,9 +27,13 @@ export async function GET() {
       .where(eq(articles.status, "published"))
       .groupBy(articles.authorId);
 
-    const countMap = new Map(articleCounts.map(ac => [ac.authorId, Number(ac.count)]));
+    const countMap = new Map<number, number>(
+      articleCounts
+        .filter((ac): ac is { authorId: number; count: number | string | bigint | null } => ac.authorId !== null)
+        .map((ac) => [ac.authorId, Number(ac.count)]),
+    );
 
-    const result = allUsers.map(u => ({
+    const result = allUsers.map((u) => ({
       ...u,
       articleCount: countMap.get(u.id) || 0,
     }));
